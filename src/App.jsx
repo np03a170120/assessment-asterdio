@@ -1,7 +1,7 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { App as AntdApp, ConfigProvider } from "antd";
 import "./App.css";
 import Header from "./app/Header/Header";
-import { ConfigProvider } from "antd";
 
 import ProductList from "./app/Product/ProductList";
 
@@ -14,13 +14,14 @@ function App() {
           theme={{
             token: {
               colorPrimary: "#273238",
-              borderRadius: 4,
               fontFamily: "inter",
             },
           }}
         >
-          <Header />
-          <ProductList />
+          <AntdApp>
+            <Header />
+            <ProductList />
+          </AntdApp>
         </ConfigProvider>
       </QueryClientProvider>
     </>

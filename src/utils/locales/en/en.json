@@ -1,5 +1,5 @@
 {
-  "pageTitle": "Male Outfits",
+  "pageTitle": "Men's Outfit",
   "menuHome": "Home",
   "menuCategories": "Categories",
   "menuAboutUs": "About Us",
@@ -13,5 +13,8 @@
   "image": "Image",
   "product": "Product",
   "price": "Price",
-  "action": "Action"
+  "action": "Action",
+  "discount": "Discount",
+  "brand": "Brand",
+  "availability": "Availablity"
 }

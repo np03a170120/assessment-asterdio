@@ -1,20 +1,25 @@
 import {
-  HomeTwoTone,
-  UnorderedListOutlined,
-  TeamOutlined,
+  HomeOutlined,
   PhoneOutlined,
   QuestionCircleOutlined,
+  TeamOutlined,
+  UnorderedListOutlined,
 } from "@ant-design/icons";
 import { Menu } from "antd";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 
 const Navigation = () => {
   const { t } = useTranslation();
+  const [current, setCurrent] = useState("home");
+  const onClick = (e) => {
+    setCurrent(e.key);
+  };
   const items = [
     {
       label: t("menuHome"),
-      key: "mail",
-      icon: <HomeTwoTone />,
+      key: "home",
+      icon: <HomeOutlined />,
     },
     {
       label: t("menuCategories"),
@@ -70,6 +75,8 @@ const Navigation = () => {
 
   return (
     <Menu
+      onClick={onClick}
+      selectedKeys={[current]}
       className="container mx-auto font-semibold"
       mode="horizontal"
       items={items}

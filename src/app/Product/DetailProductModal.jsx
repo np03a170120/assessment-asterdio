@@ -1,5 +1,6 @@
 import { Button, Modal } from "antd";
 import React, { useState } from "react";
+import { PlusOutlined, MinusOutlined } from "@ant-design/icons";
 
 const DetailProductModal = ({
   name,
@@ -32,22 +33,34 @@ const DetailProductModal = ({
   };
 
   return (
-    <Modal open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
-      <img className="rounded-t-lg w-full bg-gray-100" src={image} alt="" />
-      <h1>{title}</h1>
-      <h5 className="mb-2 text-md font-medium tracking-tight text-gray-900">
+    <Modal
+      open={isModalOpen}
+      onOk={handleOk}
+      onCancel={handleCancel}
+      title={title}
+    >
+      <img
+        className="rounded-t-lg w-full bg-gray-100  min-h-[450px] mb-2"
+        src={image}
+        alt=""
+      />
+      <h5 className="mb-3 text-md font-medium tracking-tight text-gray-900">
         {name}
       </h5>
-      <p>{description}</p>
-      <p>Available Stock: {stock}</p>
+      <p className="mb-3">{description}</p>
+      <p className="mb-1">Available Stock: {stock}</p>
       <div className="flex items-center gap-2">
-        <Button onClick={decreaseCount} disabled={count === 1}>
-          -
-        </Button>
+        <Button
+          onClick={decreaseCount}
+          disabled={count === 1}
+          icon={<MinusOutlined />}
+        ></Button>
         <span>{count}</span>
-        <Button onClick={increaseCount} disabled={count === stock}>
-          +
-        </Button>
+        <Button
+          icon={<PlusOutlined />}
+          onClick={increaseCount}
+          disabled={count === stock}
+        ></Button>
       </div>
     </Modal>
   );
