@@ -21,13 +21,13 @@ const Product = ({ image, name, price, description, stock }) => {
   return (
     <>
       <div
-        className="relative flex flex-col w-full rounded-lg bg-gray-200 hover:shadow-md cursor-pointer pb-2 min-h-[300px] group"
+        className="relative flex flex-col w-full rounded-lg bg-gray-200 hover:shadow-md cursor-pointer pb-2 min-h-[18rem] group"
         onClick={showModal}
       >
         <img className="h-64 w-full object-contain" src={image} alt={name} />
         <div className="flex-grow p-5">
-          <h5 className="mb-1 text-md font-medium text-gray-900">{name}</h5>
-          <p className="mb-3 font-normal text-gray-900">Rs.{price}</p>
+          <h5 className="mb-1 text-md font-normal line-clamp-1">{name}</h5>
+          <p className="mb-3 font-semibold text-lg">Rs.{price}</p>
         </div>
 
         <div className="absolute top-4 right-4 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
@@ -50,6 +50,7 @@ const Product = ({ image, name, price, description, stock }) => {
           onOk={handleOk}
           onCancel={handleCancel}
           stock={stock}
+          price={price}
         />
       )}
     </>
