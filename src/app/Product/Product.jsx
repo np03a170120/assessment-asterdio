@@ -1,6 +1,7 @@
-import { useState } from "react";
-import DetailProductModal from "./DetailProductModal";
 import { Button } from "antd";
+import { useState } from "react";
+import { InfoCircleOutlined } from "@ant-design/icons"; // Importing the icon
+import DetailProductModal from "./DetailProductModal";
 
 const Product = ({ image, name, price, description, stock }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -19,14 +20,24 @@ const Product = ({ image, name, price, description, stock }) => {
 
   return (
     <>
-      <div className="w-full rounded-lg  bg-gray-100 hover:shadow-md cursor-pointer">
-        <img className=" h-64 w-full object-contain" src={image} alt="" />
-        <div className="p-5 pt-0 pb-0">
-          <h5 className="mb-1 text-md font-medium  text-gray-900">{name}</h5>
+      <div
+        className="relative flex flex-col w-full rounded-lg bg-gray-200 hover:shadow-md cursor-pointer pb-2 min-h-[300px] group"
+        onClick={showModal}
+      >
+        <img className="h-64 w-full object-contain" src={image} alt={name} />
+        <div className="flex-grow p-5">
+          <h5 className="mb-1 text-md font-medium text-gray-900">{name}</h5>
           <p className="mb-3 font-normal text-gray-900">Rs.{price}</p>
-          <Button onClick={showModal}>Detail</Button>
+        </div>
+
+        <div className="absolute top-4 right-4 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+          <Button
+            className="bg-blue-500  rounded-full shadow-md"
+            icon={<InfoCircleOutlined />}
+          />
         </div>
       </div>
+
       {isModalOpen && (
         <DetailProductModal
           description={description}

@@ -1,6 +1,6 @@
-import { useTranslation } from "react-i18next";
-import { FlagIcon } from "react-flag-kit";
 import { Select } from "antd";
+import { FlagIcon } from "react-flag-kit";
+import { useTranslation } from "react-i18next";
 
 const LanguageSelector = () => {
   const { i18n } = useTranslation();

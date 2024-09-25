@@ -51,17 +51,17 @@ const ProductTable = ({ data, isPending }) => {
       key: "price",
     },
     {
-      title: "Discount (%)",
+      title: `${t("discount")} (%)`,
       dataIndex: "discountPercentage",
       key: "discountPercentage",
     },
     {
-      title: "Brand",
+      title: t("brand"),
       dataIndex: "brand",
       key: "brand",
     },
     {
-      title: "Availablity",
+      title: t("availability"),
       dataIndex: "availabilityStatus",
       key: "availabilityStatus",
       render: (_, record) => (

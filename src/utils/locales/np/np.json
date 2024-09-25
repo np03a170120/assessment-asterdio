@@ -1,5 +1,5 @@
 {
-  "pageTitle": "पुरुष पोशाक",
+  "pageTitle": "पुरुषको पोशाक",
   "menuHome": "गृह ",
   "menuCategories": "कोटीहरू ",
   "menuAboutUs": "हाम्रो बारेमा ",
@@ -13,5 +13,8 @@
   "image": "फोटो",
   "product": "वस्तुहरू",
   "price": "मूल्य",
-  "action": "तालिका क्रिया"
+  "action": "तालिका क्रिया",
+  "discount": "छुट",
+  "brand": "ब्रान्ड",
+  "availability": "उपलब्धता"
 }
