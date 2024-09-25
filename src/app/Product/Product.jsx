@@ -1,7 +1,8 @@
 import { useState } from "react";
 import DetailProductModal from "./DetailProductModal";
+import { Button } from "antd";
 
-const Product = ({ image, name, price, description }) => {
+const Product = ({ image, name, price, description, stock }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const showModal = () => {
@@ -19,19 +20,11 @@ const Product = ({ image, name, price, description }) => {
   return (
     <>
       <div className="w-full rounded-lg  bg-gray-100 hover:shadow-md cursor-pointer">
-        <img
-          className="rounded-t-lg h-64 w-full object-contain"
-          src={image}
-          alt=""
-        />
+        <img className=" h-64 w-full object-contain" src={image} alt="" />
         <div className="p-5 pt-0 pb-0">
-          <a href="#">
-            <h5 className="mb-2 text-md font-semibold tracking-tight text-gray-900">
-              {name}
-            </h5>
-          </a>
+          <h5 className="mb-1 text-md font-medium  text-gray-900">{name}</h5>
           <p className="mb-3 font-normal text-gray-900">Rs.{price}</p>
-          {/* <Button onClick={showModal}>Detail</Button> */}
+          <Button onClick={showModal}>Detail</Button>
         </div>
       </div>
       {isModalOpen && (
@@ -45,6 +38,7 @@ const Product = ({ image, name, price, description }) => {
           open={isModalOpen}
           onOk={handleOk}
           onCancel={handleCancel}
+          stock={stock}
         />
       )}
     </>
