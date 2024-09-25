@@ -111,6 +111,7 @@ const ProductTable = ({ data, isPending }) => {
           onOk={handleOk}
           onCancel={handleCancel}
           stock={selectedProduct.stock}
+          price={selectedProduct.price}
         />
       )}
     </>
