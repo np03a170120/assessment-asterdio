@@ -29,3 +29,7 @@ body {
   padding-top: 0.35rem !important;
   padding-bottom: 0.35rem !important;
 }
+
+.ant-modal-content {
+  margin: 0.5rem;
+}
