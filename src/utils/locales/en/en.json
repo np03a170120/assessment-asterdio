@@ -12,9 +12,13 @@
   "menTrainer": "Trainers",
   "image": "Image",
   "product": "Product",
-  "price": "Price",
+  "price": "Price (Rs)",
   "action": "Action",
   "discount": "Discount",
   "brand": "Brand",
-  "availability": "Availablity"
+  "availability": "Availablity",
+  "addToCart": "Add to Cart",
+  "cancel": "Cancel",
+  "availableStock": "Available Stock",
+  "quantity": "Quantity"
 }

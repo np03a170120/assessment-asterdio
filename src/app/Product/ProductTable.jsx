@@ -82,12 +82,11 @@ const ProductTable = ({ data, isPending }) => {
         render: (_, record) => (
           <Space size="middle">
             <Button
+              type="text"
               onClick={() => showModal(record)}
               size="small"
               icon={<EyeOutlined />}
-            >
-              View
-            </Button>
+            />
           </Space>
         ),
       },

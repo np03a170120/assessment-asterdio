@@ -12,9 +12,13 @@
   "menTrainer": " व्यायाम जुत्ता ",
   "image": "फोटो",
   "product": "वस्तुहरू",
-  "price": "मूल्य",
+  "price": "मूल्य (रु)",
   "action": "तालिका क्रिया",
   "discount": "छुट",
   "brand": "ब्रान्ड",
-  "availability": "उपलब्धता"
+  "availability": "उपलब्धता",
+  "addToCart": "कार्टमा थप्नुहोस्",
+  "cancel": "रद्द गर्नुहोस्",
+  "availableStock": "उपलब्ध स्टक",
+  "quantity": "मात्रा"
 }
