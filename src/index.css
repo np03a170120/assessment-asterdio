@@ -33,3 +33,13 @@ body {
 .ant-modal-content {
   margin: 0.5rem;
 }
+
+th.column-right,
+td.column-right {
+  text-align: right !important;
+}
+
+th.ant-table-cell {
+  padding-top: 0.75rem !important;
+  padding-bottom: 0.75rem !important;
+}

@@ -35,8 +35,8 @@ const ProductList = () => {
           {data?.map((item) => {
             return (
               <Product
+                key={item.id}
                 stock={item?.stock}
-                key={item?.id}
                 price={item?.price}
                 name={item?.title}
                 image={item?.thumbnail}

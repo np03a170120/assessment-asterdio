@@ -1,8 +1,8 @@
 import { EyeOutlined } from "@ant-design/icons";
-import { Badge, Button, Space, Table } from "antd";
+import { Badge, Button, Space, Table, Tag } from "antd";
 import React, { useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
-import DetailProductModal from "./DetailProductModal";
+import ProductModal from "./ProductModal";
 
 const ProductTable = ({ data, isPending }) => {
   const { t } = useTranslation();
@@ -14,7 +14,7 @@ const ProductTable = ({ data, isPending }) => {
     setIsModalOpen(true);
   };
 
-  const handleOk = () => {
+  const handleConfirm = () => {
     setIsModalOpen(false);
     setSelectedProduct(null);
   };
@@ -28,32 +28,23 @@ const ProductTable = ({ data, isPending }) => {
     () => [
       {
         title: t("image"),
-        dataIndex: "title",
-        key: "title",
+        dataIndex: "thumbnail",
+        key: "thumbnail",
         render: (_, record) => (
           <Space size="middle">
             <img
-              className="h-20 rounded-md object-contain bg-gray-100"
+              className="h-[4.5rem] rounded-md object-contain bg-gray-100"
               src={record?.thumbnail}
               alt={record?.title}
             />
           </Space>
         ),
       },
+
       {
         title: t("product"),
         dataIndex: "title",
         key: "title",
-      },
-      {
-        title: t("price"),
-        dataIndex: "price",
-        key: "price",
-      },
-      {
-        title: `${t("discount")} (%)`,
-        dataIndex: "discountPercentage",
-        key: "discountPercentage",
       },
       {
         title: t("brand"),
@@ -61,32 +52,45 @@ const ProductTable = ({ data, isPending }) => {
         key: "brand",
       },
       {
+        title: t("price"),
+        dataIndex: "price",
+        key: "price",
+        className: "column-right",
+      },
+      {
+        title: `${t("discount")} (%)`,
+        dataIndex: "discountPercentage",
+        key: "discountPercentage",
+        className: "column-right",
+      },
+
+      {
         title: t("availability"),
         dataIndex: "availabilityStatus",
         key: "availabilityStatus",
-        render: (_, record) => (
-          <Badge
-            className="site-badge-count-109"
-            count={record.availabilityStatus ? "In Stock" : "Out of Stock"}
-            style={{
-              backgroundColor: record.availabilityStatus
-                ? "#52c41a"
-                : "#c4521a",
-            }}
-          />
-        ),
+        render: (_, record) => {
+          return record?.availabilityStatus === "In Stock" ? (
+            <Tag color="success">In Stock</Tag>
+          ) : (
+            <Tag color="error">Out of Stock</Tag>
+          );
+        },
       },
       {
         title: t("action"),
         key: "action",
+        className: "column-right",
         render: (_, record) => (
           <Space size="middle">
             <Button
-              type="text"
+              className="text-gray-800 text-xs"
               onClick={() => showModal(record)}
               size="small"
-              icon={<EyeOutlined />}
-            />
+              icon={<EyeOutlined className="text-gray-800 text-xs" />}
+            >
+              {" "}
+              {t("view")}
+            </Button>
           </Space>
         ),
       },
@@ -97,6 +101,7 @@ const ProductTable = ({ data, isPending }) => {
   return (
     <>
       <Table
+        rowKey={(record) => record.id}
         className="px-2"
         tableLayout="auto"
         scroll={{ x: "max-content" }}
@@ -105,16 +110,13 @@ const ProductTable = ({ data, isPending }) => {
         dataSource={data}
       />
       {isModalOpen && selectedProduct && (
-        <DetailProductModal
+        <ProductModal
           description={selectedProduct.description}
-          handleOk={handleOk}
+          handleConfirm={handleConfirm}
           handleCancel={handleCancel}
           isModalOpen={isModalOpen}
           image={selectedProduct.thumbnail}
           title={selectedProduct.title}
-          open={isModalOpen}
-          onOk={handleOk}
-          onCancel={handleCancel}
           stock={selectedProduct.stock}
           price={selectedProduct.price}
         />

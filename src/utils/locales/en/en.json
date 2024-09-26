@@ -16,9 +16,10 @@
   "action": "Action",
   "discount": "Discount",
   "brand": "Brand",
-  "availability": "Availablity",
+  "availability": "Status",
   "addToCart": "Add to Cart",
   "cancel": "Cancel",
   "availableStock": "Available Stock",
-  "quantity": "Quantity"
+  "quantity": "Quantity",
+  "view": "View"
 }
