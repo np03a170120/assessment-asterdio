@@ -1,5 +1,4 @@
 import { useQuery } from "@tanstack/react-query";
-import { App } from "antd";
 
 import axios from "axios";
 
@@ -11,17 +10,12 @@ export const apiDetails = {
 };
 
 export const useProductList = () => {
-  const { message } = App.useApp();
   return useQuery({
-    queryFn: async () => await axios.get(apiDetails.getProducts.url),
+    queryFn: () => axios.get(apiDetails.getProducts.url),
     queryKey: [apiDetails.getProducts.key],
+    retry: 2,
     select(data) {
       return data?.data?.products;
-    },
-    throwOnError: () => {
-      const errorMessage =
-        "Unable to connect to the server. Please try again later";
-      message.error(errorMessage);
     },
   });
 };
