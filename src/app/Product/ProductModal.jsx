@@ -103,7 +103,7 @@ const ProductModal = ({
             </div>
           </div>
 
-          <div className="flex justify-end mt-5">
+          <div className="flex justify-end mt-6">
             <Button onClick={handleCancel} className="mr-2">
               {t("cancel")}
             </Button>
