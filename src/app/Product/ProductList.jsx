@@ -1,15 +1,25 @@
 import { AppstoreOutlined, MenuOutlined } from "@ant-design/icons";
-import { Button } from "antd";
-import { useState } from "react";
+import { App, Button } from "antd";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useProductList } from "../../api/product.query";
 import Product from "./Product";
 import ProductTable from "./ProductTable";
 
 const ProductList = () => {
-  const { data, isPending } = useProductList();
+  const { message } = App.useApp();
+  const { data, isPending, isError } = useProductList();
   const [cardView, setCardView] = useState(0);
   const { t } = useTranslation();
+
+  useEffect(() => {
+    if (isError) {
+      const errorMessage =
+        "Unable to connect to the server. Please try again later";
+
+      message.error(errorMessage);
+    }
+  }, [isError]);
 
   return (
     <div className="container mx-auto">
