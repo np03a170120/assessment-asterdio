@@ -12,7 +12,6 @@ export const apiDetails = {
 
 export const useProductList = () => {
   const { message } = App.useApp();
-
   return useQuery({
     queryFn: async () => await axios.get(apiDetails.getProducts.url),
     queryKey: [apiDetails.getProducts.key],

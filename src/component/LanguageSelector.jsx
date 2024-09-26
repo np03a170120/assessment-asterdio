@@ -1,7 +1,7 @@
 import { Select } from "antd";
+import { useEffect, useState } from "react";
 import { FlagIcon } from "react-flag-kit";
 import { useTranslation } from "react-i18next";
-import { useEffect, useState } from "react";
 
 const LanguageSelector = () => {
   const { i18n } = useTranslation();
@@ -21,7 +21,7 @@ const LanguageSelector = () => {
     <Select
       size="small"
       value={selectedLanguage}
-      style={{ width: 60 }}
+      style={{ width: 55 }}
       onChange={changeLanguage}
       options={[
         { value: "en", label: <FlagIcon code="US" size={48} /> },

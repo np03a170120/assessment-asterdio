@@ -1,7 +1,7 @@
 import { InfoCircleOutlined } from "@ant-design/icons";
 import { Button } from "antd";
 import { useState } from "react";
-import DetailProductModal from "./DetailProductModal";
+import ProductModal from "./ProductModal";
 
 const Product = ({ image, name, price, description, stock }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -10,7 +10,7 @@ const Product = ({ image, name, price, description, stock }) => {
     setIsModalOpen(true);
   };
 
-  const handleOk = () => {
+  const handleConfirm = () => {
     setIsModalOpen(false);
   };
 
@@ -19,9 +19,9 @@ const Product = ({ image, name, price, description, stock }) => {
   };
 
   return (
-    <>
+    <div>
       <div
-        className="relative flex flex-col w-full rounded-lg bg-gray-200 hover:shadow-md cursor-pointer pb-2 min-h-[18rem] group "
+        className="relative flex flex-col w-full rounded-lg bg-gray-100 border  cursor-pointer pb-2 min-h-[18rem] group "
         onClick={showModal}
       >
         <img className="h-64 w-full object-contain" src={image} alt={name} />
@@ -38,21 +38,18 @@ const Product = ({ image, name, price, description, stock }) => {
       </div>
 
       {isModalOpen && (
-        <DetailProductModal
+        <ProductModal
           description={description}
-          handleOk={handleOk}
+          handleConfirm={handleConfirm}
           handleCancel={handleCancel}
           isModalOpen={isModalOpen}
           image={image}
           title={name}
-          open={isModalOpen}
-          onOk={handleOk}
-          onCancel={handleCancel}
           stock={stock}
           price={price}
         />
       )}
-    </>
+    </div>
   );
 };
 

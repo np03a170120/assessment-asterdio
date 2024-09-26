@@ -16,7 +16,6 @@ const savedLanguage = localStorage.getItem("language") || "en";
 
 i18n.use(initReactI18next).init({
   resources,
-  // fallbackLng: "en",
   lng: savedLanguage,
   interpolation: {
     escapeValue: false,
