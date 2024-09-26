@@ -5,6 +5,7 @@ import {
 } from "@ant-design/icons";
 import { Button, Modal } from "antd";
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 const DetailProductModal = ({
   name,
@@ -17,7 +18,7 @@ const DetailProductModal = ({
   price,
 }) => {
   const [count, setCount] = useState(1);
-
+  const { t } = useTranslation();
   const increaseCount = () => {
     setCount((prevCount) => {
       if (prevCount < stock) {
@@ -43,14 +44,14 @@ const DetailProductModal = ({
       onCancel={handleCancel}
       footer={[
         <Button key="cancel" onClick={handleCancel}>
-          Cancel
+          {t("cancel")}
         </Button>,
         <Button
           icon={<ShoppingCartOutlined />}
           key="add-to-cart"
           type="primary"
         >
-          Add
+          {t("addToCart")}
         </Button>,
       ]}
     >
@@ -70,15 +71,15 @@ const DetailProductModal = ({
           </div>
           <div className="flex flex-col gap-3">
             <div className="flex justify-between">
-              <p className="font-medium">Price:</p>
+              <p className="font-medium">{t("price")}:</p>
               <p className="text-lg font-semibold">Rs.{price}</p>
             </div>
             <div className="flex justify-between">
-              <p className="font-medium">Available Stock:</p>
+              <p className="font-medium">{t("availableStock")}:</p>
               <p className="text-lg font-semibold">{stock}</p>
             </div>
             <div className="flex items-center justify-between">
-              <h6 className="font-medium">Quantity</h6>
+              <h6 className="font-medium">{t("quantity")}:</h6>
               <div className="flex items-center gap-2">
                 <Button
                   onClick={decreaseCount}

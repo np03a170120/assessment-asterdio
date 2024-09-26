@@ -1,18 +1,26 @@
 import { Select } from "antd";
 import { FlagIcon } from "react-flag-kit";
 import { useTranslation } from "react-i18next";
+import { useEffect, useState } from "react";
 
 const LanguageSelector = () => {
   const { i18n } = useTranslation();
+  const [selectedLanguage, setSelectedLanguage] = useState("en");
+
+  useEffect(() => {
+    const storedLanguage = localStorage.getItem("language") || "en";
+    setSelectedLanguage(storedLanguage);
+  }, []);
 
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
+    setSelectedLanguage(lng);
   };
 
   return (
     <Select
       size="small"
-      defaultValue="en"
+      value={selectedLanguage}
       style={{ width: 60 }}
       onChange={changeLanguage}
       options={[
