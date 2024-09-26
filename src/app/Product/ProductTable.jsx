@@ -1,5 +1,5 @@
 import { EyeOutlined } from "@ant-design/icons";
-import { Badge, Button, Space, Table, Tag } from "antd";
+import { Button, Space, Table, Tag } from "antd";
 import React, { useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import ProductModal from "./ProductModal";
