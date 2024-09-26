@@ -31,7 +31,7 @@ const ProductList = () => {
       </div>
 
       {cardView === 1 && (
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6 px-2">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6 px-2 pb-4">
           {data?.map((item) => {
             return (
               <Product
